@@ -3,7 +3,7 @@ import profile_picture from '../static/profile_pic.svg'
 import mkit_logo from '../static/MKIT_LOGO.svg'
 import {mkit} from '../utils/links'
 import { NavLink } from 'react-router-dom'
-import { ADMIN_ROUTE, EVENTS_ROUTE, HOMEPAGE_ROUTE, HOMEWORK_ROUTE, LOGIN_ROUTE, PROFILE_ROUTE, SCHEDULE_ROUTE } from '../utils/consts'
+import {EVENTS_ROUTE, HOMEPAGE_ROUTE, HOMEWORK_ROUTE, LOGIN_ROUTE, PROFILE_ROUTE, SCHEDULE_ROUTE } from '../utils/consts'
 import { useContext } from 'react'
 import { Context } from '..'
 
