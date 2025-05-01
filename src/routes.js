@@ -6,7 +6,9 @@ import HomeWork from "./pages/Homework"
 import Profile from "./pages/Profile"
 import Schedule from "./pages/Schedule"
 import Events from "./pages/Events"
-import HomeWorkID from "./pages/HomeworkID"
+import HomeWorkPage from "./pages/HomeworkPage"
+import EventsPage from "./pages/EventsPage"
+
 import { ADMIN_ROUTE, EVENTS_ROUTE, HOMEPAGE_ROUTE, HOMEWORK_ROUTE, LOGIN_ROUTE, PROFILE_ROUTE, REGISTER_ROUTE, SCHEDULE_ROUTE,HOMEWORKID_ROUTE } from "./utils/consts"
 
 export const authRoutes = [
@@ -24,13 +26,12 @@ export const authRoutes = [
     },
     {
         path:HOMEWORKID_ROUTE + '/:id',
-        Component:HomeWorkID
+        Component:HomeWorkPage
     },
     {
         path:SCHEDULE_ROUTE ,
         Component:Schedule
-    },
-
+    }
 ]
 export const publicRoutes = [
     {
@@ -48,5 +49,9 @@ export const publicRoutes = [
     {
         path:EVENTS_ROUTE,
         Component:Events
+    },
+    {
+        path:EVENTS_ROUTE + '/:id',
+        Component: EventsPage
     }
 ]

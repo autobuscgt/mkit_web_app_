@@ -5,27 +5,34 @@ import schedule from '../static/homepage/schedule.svg'
 import { NavLink } from 'react-router-dom';
 import { EVENTS_ROUTE, HOMEWORK_ROUTE, SCHEDULE_ROUTE } from '../utils/consts';
 import { mkit } from '../utils/links';
+import { observer } from "mobx-react-lite";
+import { useContext } from 'react';
+import {Context} from '..'
 
-function HomePage() {
+const HomePage = observer(()=> {
+  const {user} = useContext(Context)
     return (
       <div className='main_container'>
         <div className='main_logos'>
-          
           <div className='centered'>
-            
-          <table>
+          <table className='main_table'>
+            <tbody className='main_table'>
+              {user.isAuth &&(
             <tr>
-              <td><NavLink to={HOMEWORK_ROUTE}>
-              <img src={homework} alt='pzls_logo'/>
-                </NavLink></td>
-              <td>
-                <NavLink to={SCHEDULE_ROUTE}>
-                <img src={schedule} alt='pzls_logo'/>
-                </NavLink>
-                </td>
-            </tr>
+            <td><NavLink to={HOMEWORK_ROUTE}>
+            <img src={homework} alt='pzls_logo'/>
+              </NavLink></td>
+            <td>
+              <NavLink to={SCHEDULE_ROUTE}>
+              <img src={schedule} alt='pzls_logo'/>
+              </NavLink>
+              </td>
+
+          </tr>
+              )}
+
             <tr>
-              <td>
+            <td>
                 <NavLink to={EVENTS_ROUTE}>
                 <img src={events} alt='pzls_logo'/>
                 </NavLink>
@@ -34,11 +41,13 @@ function HomePage() {
                 <NavLink to={mkit}><img src={main_web_site} alt='pzls_logo'/></NavLink>
                 </td>
             </tr>
+            </tbody>
           </table>
-          </div>
           
-          <p style = {{padding:'10px',display:'flex',justifyContent:'center',borderTop:'1px solid black',marginTop:'1%',borderBottom:'1px solid black'}}>
-        Твой надежный помощник в мире учебы. Мы создали этот сервис, чтобы помочь студентам:<br/>
+          </div>
+
+          <p className='description'>
+          Твой надежный помощник в мире учебы. Мы создали этот сервис, чтобы помочь студентам:<br/>
           ✅ Быстро получать доступ к расписанию<br/>
           ✅ Удобно отслеживать домашние задания<br/>
           ✅ Находить материалы для подготовки<br/>
@@ -50,9 +59,11 @@ function HomePage() {
         </div>
 
 
+
       </div>
+      
     );
-  }
+  })
   
   export default HomePage;
   

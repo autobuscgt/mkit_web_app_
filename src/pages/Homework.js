@@ -1,38 +1,74 @@
-import lesson_folder from '../static/folder.svg'
-const lessons = [
-{id:1,name:'Английский язык',image:lesson_folder},
-{id:2,name:'Русский язык',image:lesson_folder},
-{id:3,name:'Математика',image:lesson_folder},
-{id:4,name:'Физика',image:lesson_folder},
-{id:5,name:'Литература',image:lesson_folder},
-{id:6,name:'Английский язык',image:lesson_folder},
-{id:7,name:'Русский язык',image:lesson_folder},
-{id:8,name:'Математика',image:lesson_folder},
-{id:9,name:'Физика',image:lesson_folder},
-{id:10,name:'Литература',image:lesson_folder},
-{id:11,name:'Английский язык',image:lesson_folder},
-{id:12,name:'Русский язык',image:lesson_folder},
-{id:13,name:'Математика',image:lesson_folder},
-{id:14,name:'Физика',image:lesson_folder},
-{id:15,name:'Литература',image:lesson_folder},
-]
-function HomeWork() {
-    return (
-      <div className='center'>
-      <div className='centered_homework'>
-        {lessons.map((lesson)=>
-        <div key = {lesson.id} className='homework_cards'>
-          <ul>
-          <li>{lesson.name}</li>
-          <li><img src={lesson.image} alt ='folder_ico'/></li>
-          </ul>
+import { useNavigate } from 'react-router-dom';
+import lesson_folder from '../static/folder.svg';
+import { HOMEWORKID_ROUTE } from '../utils/consts';
+import { observer } from "mobx-react-lite";
+import { useContext, useEffect } from 'react';
+import { Context } from '..';
+import { fetchHomework } from '../http/homeworkAPI';
+import { toJS } from 'mobx';
+import PagesHomework from '../components/Pageshomework';
 
-        </div>
-        )}
-      </div>
-      </div>
-    );
+const HomeWork = observer(() => {
+  const { groups, homework } = useContext(Context);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const groupId = groups.selectedGroupId;
+        const page = homework.page; 
+        const limit = homework.limit;
+
+        const data = await fetchHomework(groupId, page, limit);
+        if (data && data.homeworks) {
+          homework.setHomeworks(data.homeworks);
+          homework.setTotalCount(data.total);
+          homework.setTotalPages(Math.ceil(data.total / limit));
+        }
+      } catch (e) {
+        console.error('Ошибка загрузки:', e);
+      }
+    };
+
+    loadData();
+  }, [groups.selectedGroupId, homework.page, homework.limit]); 
+
+  const homeworkData = toJS(homework.homeworks) || [];
+  if(!homeworkData){
+    <div>
+      ДЗ 
+    </div>
   }
-  
-  export default HomeWork;
-  
+  return (
+    <div className='center'>
+    <div>
+      <div className='center'>
+        <div className='main_container'>
+          {homeworkData.map((lesson) => (
+            <div 
+              key={lesson.id} 
+              className='homework_cards' 
+              onClick={() => navigate(`${HOMEWORKID_ROUTE}/${lesson.id}`)}
+            >
+              <ul style={{ padding: 0 }}>
+                <li style={{ padding: 0 }}>
+                  <img src={lesson_folder} alt='folder_ico' />
+                </li>
+                <li style={{ padding: 0 }}>
+                  {lesson.lesson}
+                </li>
+              </ul>
+            </div>
+          ))}
+              <PagesHomework style={{marginTop:'2%'}}/>
+        </div>
+        
+      </div>
+   
+    </div>
+
+    </div>
+  );
+});
+
+export default HomeWork;

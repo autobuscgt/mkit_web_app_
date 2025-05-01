@@ -1,46 +1,113 @@
 import '../styles/styles.css'
 import timetable from '../static/timetable.svg'
-function Events() {
-  const events = [
-    {id:1, image:"https://cdn.culture.ru/images/13362809-b7e2-5039-bb4e-110d34c1b9ed",name:'23 февраля',description:'Vestibulum elit est, fringilla eget sodales ac, gravida sed est. Curabitur faucibus ut augue auctor ultrices. Cras fermentum congue vulputate. Donec iaculis nisl ut odio fringilla lobortis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis sed neque eu purus blandit lobortis ut id ipsum. In facilisis hendrerit purus eu cursus.',day_of_week:"23.02.2025"},
-    {id:2, image:"https://vzornn.ru/image/news/2022/8-marta.jpg",name:'8 марта',description:'Vestibulum elit est, fringilla eget sodales ac, gravida sed est. Curabitur faucibus ut augue auctor ultrices. Cras fermentum congue vulputate. Donec iaculis nisl ut odio fringilla lobortis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis sed neque eu purus blandit lobortis ut id ipsum. In facilisis hendrerit purus eu cursus.',day_of_week:"8.03.2025"},
-    {id:3, image:"https://cs14.pikabu.ru/post_img/2023/05/09/4/og_og_1683606896232965747.jpg",name:'9 мая',description:'Vestibulum elit est, fringilla eget sodales ac, gravida sed est. Curabitur faucibus ut augue auctor ultrices. Cras fermentum congue vulputate. Donec iaculis nisl ut odio fringilla lobortis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis sed neque eu purus blandit lobortis ut id ipsum. In facilisis hendrerit purus eu cursus.',day_of_week:"09.05.2025"},
-    {id:4, image:"https://cdn.culture.ru/images/acea02d8-c8be-5c0a-bafd-9b3a3f47ffc5",name:'14 февраля',description:'Vestibulum elit est, fringilla eget sodales ac, gravida sed est. Curabitur faucibus ut augue auctor ultrices. Cras fermentum congue vulputate. Donec iaculis nisl ut odio fringilla lobortis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis sed neque eu purus blandit lobortis ut id ipsum. In facilisis hendrerit purus eu cursus.Vestibulum elit est, fringilla eget sodales ac, gravida sed est. Curabitur faucibus ut augue auctor ultrices. Cras fermentum congue vulputate. Donec iaculis nisl ut odio fringilla lobortis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis sed neque eu purus blandit lobortis ut id ipsum. In facilisis hendrerit purus eu cursus.',day_of_week:"14.02.2025"},
-    {id:5, image:"https://avatars.mds.yandex.net/i?id=2b7721a08373227049cf64abf12125b6_l-8995617-images-thumbs&n=13",name:'12 июня',description:'Vestibulum elit est, fringilla eget sodales ac, gravida sed est. Curabitur faucibus ut augue auctor ultrices. Cras fermentum congue vulputate. Donec iaculis nisl ut odio fringilla lobortis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis sed neque eu purus blandit lobortis ut id ipsum. In facilisis hendrerit purus eu cursus.',day_of_week:"12.06.2025"},
-    {id:6, image:"https://cdn.culture.ru/images/acea02d8-c8be-5c0a-bafd-9b3a3f47ffc5",name:'14 февраля',description:'Vestibulum elit est, fringilla eget sodales ac, gravida sed est. Curabitur faucibus ut augue auctor ultrices. Cras fermentum congue vulputate. Donec iaculis nisl ut odio fringilla lobortis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis sed neque eu purus blandit lobortis ut id ipsum. In facilisis hendrerit purus eu cursus.',day_of_week:"14.02.2025"},
-    {id:7, image:"https://cdn.culture.ru/images/acea02d8-c8be-5c0a-bafd-9b3a3f47ffc5",name:'14 февраля',description:'Vestibulum elit est, fringilla eget sodales ac, gravida sed est. Curabitur faucibus ut augue auctor ultrices. Cras fermentum congue vulputate. Donec iaculis nisl ut odio fringilla lobortis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis sed neque eu purus blandit lobortis ut id ipsum. In facilisis hendrerit purus eu cursus.',day_of_week:"14.02.2025"},
-    {id:8, image:"https://cdn.culture.ru/images/acea02d8-c8be-5c0a-bafd-9b3a3f47ffc5",name:'14 февраля',description:'Vestibulum elit est, fringilla eget sodales ac, gravida sed est. Curabitur faucibus ut augue auctor ultrices. Cras fermentum congue vulputate. Donec iaculis nisl ut odio fringilla lobortis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis sed neque eu purus blandit lobortis ut id ipsum. In facilisis hendrerit purus eu cursus.',day_of_week:"14.02.2025"},
-    {id:9, image:"https://cdn.culture.ru/images/acea02d8-c8be-5c0a-bafd-9b3a3f47ffc5",name:'14 февраля',description:'Vestibulum elit est, fringilla eget sodales ac, gravida sed est. Curabitur faucibus ut augue auctor ultrices. Cras fermentum congue vulputate. Donec iaculis nisl ut odio fringilla lobortis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis sed neque eu purus blandit lobortis ut id ipsum. In facilisis hendrerit purus eu cursus.',day_of_week:"14.02.2025"},
-    {id:10, image:"https://cdn.culture.ru/images/acea02d8-c8be-5c0a-bafd-9b3a3f47ffc5",name:'14 февраля',description:'Vestibulum elit est, fringilla eget sodales ac, gravida sed est. Curabitur faucibus ut augue auctor ultrices. Cras fermentum congue vulputate. Donec iaculis nisl ut odio fringilla lobortis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis sed neque eu purus blandit lobortis ut id ipsum. In facilisis hendrerit purus eu cursus.',day_of_week:"14.02.2025"},
-    {id:11, image:"https://cdn.culture.ru/images/acea02d8-c8be-5c0a-bafd-9b3a3f47ffc5",name:'14 февраля',description:'Vestibulum elit est, fringilla eget sodales ac, gravida sed est. Curabitur faucibus ut augue auctor ultrices. Cras fermentum congue vulputate. Donec iaculis nisl ut odio fringilla lobortis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis sed neque eu purus blandit lobortis ut id ipsum. In facilisis hendrerit purus eu cursus.',day_of_week:"14.02.2025"},
-    {id:12, image:"https://cdn.culture.ru/images/acea02d8-c8be-5c0a-bafd-9b3a3f47ffc5",name:'14 февраля',description:'Vestibulum elit est, fringilla eget sodales ac, gravida sed est. Curabitur faucibus ut augue auctor ultrices. Cras fermentum congue vulputate. Donec iaculis nisl ut odio fringilla lobortis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis sed neque eu purus blandit lobortis ut id ipsum. In facilisis hendrerit purus eu cursus.',day_of_week:"14.02.2025"},
-    {id:13, image:"https://cdn.culture.ru/images/acea02d8-c8be-5c0a-bafd-9b3a3f47ffc5",name:'14 февраля',description:'Vestibulum elit est, fringilla eget sodales ac, gravida sed est. Curabitur faucibus ut augue auctor ultrices. Cras fermentum congue vulputate. Donec iaculis nisl ut odio fringilla lobortis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis sed neque eu purus blandit lobortis ut id ipsum. In facilisis hendrerit purus eu cursus.',day_of_week:"14.02.2025"},
-    {id:14, image:"https://cdn.culture.ru/images/acea02d8-c8be-5c0a-bafd-9b3a3f47ffc5",name:'14 февраля',description:'Vestibulum elit est, fringilla eget sodales ac, gravida sed est. Curabitur faucibus ut augue auctor ultrices. Cras fermentum congue vulputate. Donec iaculis nisl ut odio fringilla lobortis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis sed neque eu purus blandit lobortis ut id ipsum. In facilisis hendrerit purus eu cursus.',day_of_week:"14.02.2025"},
-    {id:15, image:"https://cdn.culture.ru/images/acea02d8-c8be-5c0a-bafd-9b3a3f47ffc5",name:'14 февраля',description:'Vestibulum elit est, fringilla eget sodales ac, gravida sed est. Curabitur faucibus ut augue auctor ultrices. Cras fermentum congue vulputate. Donec iaculis nisl ut odio fringilla lobortis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis sed neque eu purus blandit lobortis ut id ipsum. In facilisis hendrerit purus eu cursus.',day_of_week:"14.02.2025"},
-    {id:16, image:"https://cdn.culture.ru/images/acea02d8-c8be-5c0a-bafd-9b3a3f47ffc5",name:'14 февраля',description:'Vestibulum elit est, fringilla eget sodales ac, gravida sed est. Curabitur faucibus ut augue auctor ultrices. Cras fermentum congue vulputate. Donec iaculis nisl ut odio fringilla lobortis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis sed neque eu purus blandit lobortis ut id ipsum. In facilisis hendrerit purus eu cursus.',day_of_week:"14.02.2025"},
-    {id:17, image:"https://cdn.culture.ru/images/acea02d8-c8be-5c0a-bafd-9b3a3f47ffc5",name:'14 февраля',description:'Vestibulum elit est, fringilla eget sodales ac, gravida sed est. Curabitur faucibus ut augue auctor ultrices. Cras fermentum congue vulputate. Donec iaculis nisl ut odio fringilla lobortis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis sed neque eu purus blandit lobortis ut id ipsum. In facilisis hendrerit purus eu cursus.',day_of_week:"14.02.2025"},
-    {id:18, image:"https://cdn.culture.ru/images/acea02d8-c8be-5c0a-bafd-9b3a3f47ffc5",name:'14 февраля',description:'Vestibulum elit est, fringilla eget sodales ac, gravida sed est. Curabitur faucibus ut augue auctor ultrices. Cras fermentum congue vulputate. Donec iaculis nisl ut odio fringilla lobortis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis sed neque eu purus blandit lobortis ut id ipsum. In facilisis hendrerit purus eu cursus.',day_of_week:"14.02.2025"},
-    {id:19, image:"https://cdn.culture.ru/images/acea02d8-c8be-5c0a-bafd-9b3a3f47ffc5",name:'14 февраля',description:'Vestibulum elit est, fringilla eget sodales ac, gravida sed est. Curabitur faucibus ut augue auctor ultrices. Cras fermentum congue vulputate. Donec iaculis nisl ut odio fringilla lobortis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis sed neque eu purus blandit lobortis ut id ipsum. In facilisis hendrerit purus eu cursus.',day_of_week:"14.02.2025"},
-    {id:20, image:"https://cdn.culture.ru/images/acea02d8-c8be-5c0a-bafd-9b3a3f47ffc5",name:'14 февраля',description:'Vestibulum elit est, fringilla eget sodales ac, gravida sed est. Curabitur faucibus ut augue auctor ultrices. Cras fermentum congue vulputate. Donec iaculis nisl ut odio fringilla lobortis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis sed neque eu purus blandit lobortis ut id ipsum. In facilisis hendrerit purus eu cursus.',day_of_week:"14.02.2025"},
-   ]
-    return (
-      <div className='main_container'>
-            {events.map(event => (
-            <div key={event.id}>
-              <div className='events_card'>
-              <img src={event.image} alt="event" className='events_card_images'/>
-              <p className='events_name'>{event.name}</p>
-              <p className='ellipsis'>{event.description}</p>
-              <p className='timetable_container'>
-              <img src={timetable} alt='timetable_icon' className='timetable_ico'/>
-                {event.day_of_week}
-              </p>
-              </div>
-            </div>
-          ))}
-      </div>
-    );
-  }
+import { observer } from "mobx-react-lite";
+import { useContext, useEffect, useState } from 'react';
+import { Context } from '..';
+import { fetchEvents } from '../http/eventsAPI';
+import x_btn from '../static/admin components/x_btn.svg'
+import edit from '../static/admin components/edit.svg'
+import DeleteEvents from '../components/modals/delete/deleteEventsModal';
+import UpdateEvents from '../components/modals/update/UpdateEvents';
+import { toJS } from 'mobx';
+import { Link } from 'react-router-dom';
+import Pages from '../components/Pages';
+const Events = observer(() => {
+  const [deleteModal, setDeleteModal] = useState(false);
+  const [updateModal, setUpdateModal] = useState(false);
+  const [selectedEventId, setSelectedEventId] = useState(null);
   
-  export default Events;
+  const { event, user } = useContext(Context);
+  const isAdmin = user.user?.role === 'Admin';
+
+  useEffect(() => {
+    fetchEvents(1,8).then(data => {
+      if (data && Array.isArray(data.events)) {
+        event.setEvents(data.events);
+
+      } else if (Array.isArray(data)) {
+        event.setEvents(data);
+      } else {
+        console.error('Unexpected data format:', data);
+        event.setEvents([]);
+      }
+      event.setPage(data.pages)
+      event.setTotalCount(data.total)
+
+    });
+  }, [event]);
+  useEffect(()=>{
+    fetchEvents(event.pages, 8).then(data =>{
+      event.setEvents(data.events)
+      event.setTotalCount(data.total)
+    })
+    
+  },[event.pages])
+  const handleDelete = (id) => {
+    setSelectedEventId(id);
+    setDeleteModal(true);
+  };
+
+  const handleUpdate = (id) => {
+    setSelectedEventId(id);
+    setUpdateModal(true);
+  };
+
+  const eventData = toJS(event.events);
+  const eventsArray = Array.isArray(eventData?.events) 
+  ? eventData.events 
+  : Array.isArray(eventData) 
+    ? eventData 
+    : [];
+  if (eventData.length === 0) {
+    return <div>Loading or no events available...</div>;
+  }
+  return (
+    <div className='main_container'>
+
+      {eventsArray.map(eventItem => (
+        <div key={eventItem.id} className='event'>
+          <div className='events_card'>
+          <Link to={`${eventItem.id}`}>
+            <img src={eventItem.image} alt="event" className='events_card_images'/>
+          </Link>
+            <p className='events_name'>{eventItem.name}</p>
+            <p className='ellipsis'>{eventItem.description}</p>
+            <p className='timetable_container'>
+              <img src={timetable} alt='timetable_icon' className='timetable_ico'/>
+              <p>{new Date(eventItem.day_of_week).toLocaleDateString('ru-RU')}</p>
+            </p>
+            
+            {isAdmin && (
+              <div className='admin_btns'>
+                <button className='none' onClick={() => handleUpdate(eventItem.id)}>
+                  <img src={edit} className='admin_button' alt='edit' />
+                </button>
+                <button onClick={() => handleDelete(eventItem.id)} className='none'>
+                  <img src={x_btn} className='admin_button' alt='delete'/>
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
+      <Pages/>
+      <DeleteEvents 
+        show={deleteModal} 
+        onHide={() => setDeleteModal(false)} 
+        onConfirm={() => {
+          event.deleteEvent(selectedEventId);
+          setDeleteModal(false);
+        }}
+      />
+      
+      <UpdateEvents 
+        show={updateModal}
+        onHide={() => setUpdateModal(false)}
+        eventId={selectedEventId}
+      />
+    </div>
+  );
+});
+
+export default Events;
   

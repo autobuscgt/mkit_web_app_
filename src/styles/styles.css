@@ -1,7 +1,11 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: Montserrat;
+    font-family: VCR;
+}
+@font-face {
+    font-family: VCR;
+    src: url('../fonts/VCR.ttf');
 }
 @font-face {
     font-family: Montserrat;
@@ -42,8 +46,13 @@ body{
     height: 150px;
     border-radius: 5px 5px 0 0;
     object-fit:cover;
+    transition: 0.2s;
+}
+.events_card_images:hover{
+    transition: 0.2s;
 }
 .main_container{
+    border-radius: 15px;
     position: absolute;
     left: 25%;
     right: 25%;
@@ -58,7 +67,6 @@ body{
     width: 40px;
     float: left;
     margin-left: 2%;
-    margin-bottom: 2%;
 }
 .timetable_container{
     padding:5% 0 5% 0;
@@ -67,11 +75,13 @@ body{
     color: white;
     background: #484848;
     width: 100%;
+    margin-bottom: 0;
+
 }
-.events_card:hover{
-    opacity: 0.7;
-    transition: 0.2s;
+.events_card img:hover{
     cursor: pointer;
+    transition: 0.2s;
+    opacity: 0.7;
 }
 .ellipsis{
     margin-top: 4%;
@@ -93,14 +103,15 @@ body{
 .main_logos img{
     width: 200px;
     transition: 0.2s;
-    border: 2px solid #48484800;
-    border-radius: 10px;
+    border: 2px solid #ffffff00;
+    border-radius: 5px;
 }
 .main_logos img:hover{
-    opacity: 0.85;
+    opacity: 0.8;
     transition: 0.2s;
     border: 2px solid #484848;
-    border-radius: 10px;
+
+    border-radius: 5px;
 }
 .events_name{
     padding-top: 0;
@@ -108,15 +119,23 @@ body{
     color: rgb(0, 0, 0);
     text-align: center;
 }
+.event{
+    margin-bottom: 4%;
+}
 .auth_ul{
     margin-top: 2%;
     list-style: none;
     text-align: center;
+    font-family: Montserrat;
+    font-weight: 100;
+    font-size: 12px;
+    padding-left: 0;
 }
 
 .auth_container{
     display: flex;
     justify-content: center;
+
 }
 .auth_logo{
     width: 75px;
@@ -172,8 +191,12 @@ ul li{
     color: #484848;
     transition: 0.2s;
 }
+.profile_container{
+    text-align: center;
+    max-width: 400px;
+    max-height: 200px;
+}
 .schedules{
-
     padding: 15px;
     margin: 1%;
     margin-top: 4%;
@@ -184,14 +207,32 @@ ul li{
     border-radius: 10px;
 }
 .homework_cards{
-    padding: 15px;
-    margin-bottom: 5%;
-    text-align: start;
+    display: flex;
+    min-height: 250px;
+    max-height: 350px;
+    max-width: 200px;
+    min-width: 200px;
+    margin: 0.5%;
+    text-align: center;
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
-    border: 1px solid rgba(0, 0, 0, 0.250);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.250);
     border-radius: 10px;
+    margin-top: 5%;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+}
+.homework_cards img{
+    padding: 0;
+    width: 100px;
+    margin: 0;
+}
+.homework_cards:hover{
+    opacity: 0.7;
+    transition: 0.2s;
+    cursor: pointer;
 }
 .center{
     justify-content: center;
@@ -202,7 +243,7 @@ ul li{
 }
 .centered_homework{
     justify-content: center;
-    max-width: 500px;
+    max-width: 700px;
     column-count: 3;
     margin-top: 2%;
 }
@@ -211,6 +252,174 @@ ul li{
     margin-left: auto;
     margin-right: auto;
     max-width: 500px;
+}
+table td tr tbody{
+    display: inline-table;
+
+}
+
+.description{
+    font-family: VCR;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-top: 3px dashed rgb(0, 225, 255);
+    margin-top: 1%;
+    border-bottom: 3px dashed rgb(0, 225, 255);
+    max-width:1000px;
+}
+
+.red_btn{
+    border: 1px solid rgb(255, 77, 77);
+    background-color: transparent;
+    color: rgb(255, 77, 77);
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+    border-radius: 35px;
+    transition: 0.2s;
+
+}
+.red_btn:hover{
+    background-color: rgb(255, 77, 77);
+    transition: 0.2s;
+    color: rgba(0, 0, 0, 0.500);
+    cursor: pointer;
+}
+.blue_btn{
+    border: 1px solid rgb(77, 199, 255);
+    background-color: transparent;
+    color: rgb(77, 199, 255);
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+    border-radius: 35px;
+    transition: 0.2s;
+
+}
+.blue_btn:hover{
+    background-color: rgb(77, 199, 255);
+    transition: 0.2s;
+    color: rgba(0, 0, 0, 0.500);
+    cursor: pointer;
+}
+.green_btn{
+
+    border: 1px solid rgb(88, 199, 76);
+    background-color: transparent;
+    color: rgb(116, 255, 101);
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 35px;
+    width: 150px;
+    transition: 0.2s;
+}
+.green_btn:hover{
+    background-color: rgb(116, 255, 101);
+    transition: 0.2s;
+    color: rgba(0, 0, 0, 0.500);
+    cursor: pointer;
+}
+.modal_centered{
+    position: fixed;
+}
+.dropdown{
+    margin-top: 1%;
+    width: 100%;
+}
+.admin_button{
+    width: 20px;
+    margin: 1%;
+
+}
+.admin_btns{
+    margin-top: 1%;
+    justify-content: left;
+    display: flex;
+    object-fit:none;
+
+}
+.none{
+    border: 0;
+    padding: 2px;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.event-page {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    max-height: 350px;
+  }
+  
+  .back-button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    margin-bottom: 1%;
+    transition: 0.2s;
+  }
+  
+  .back-button:hover {
+    color: hsla(222, 100%, 50%, 0.7);
+    transition: 0.2s;
+  }
+  
+  .event-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    
+  }
+  
+  .event-image {
+    max-width: 100%;
+    border-radius: 8px;
+    max-height: 30%;
+
+    max-height: 350px;
+    object-fit:cover;
+  }
+  
+  .event-date {
+    color: #666;
+    font-style: italic;
+  }
+.admin_btn{
+    border: none;
+    padding: 25px;
+    border-radius: 5px;
+    background-color: #484848;
+    color: white;
+    margin: 1%;
+    height: 35px;
+    transition: 0.2s;
+
+}
+.admin_btn:hover{
+    background: none;
+    border: 1px solid #484848;
+    color: #484848;
+    transition: 0.2s;
+}
+.admin_ul{
+    margin-top: 1%;
+    width: 400px;
+    padding: 0;
+    margin: 0;
+
+}
+.admin_form{
+    margin-top: 1%;
+    display: flex;
+    justify-content: center;
+}
+.group_selector{
+    height: 35px;
+    border-radius: 5px;
+    width: 100%;
 }
 @media screen and (max-width: 600px) {
     .centered {
@@ -230,5 +439,7 @@ ul li{
         margin-top: 2%;
         column-count: 1;
     }
-
+    .event{
+        margin-bottom: 15%;
+    }
 }
